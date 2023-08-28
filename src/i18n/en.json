@@ -1,0 +1,14 @@
+{
+  "public": {
+    "more": "More",
+    "previousPage": "Previous Page",
+    "nextPage": "Next Page"
+  },
+  "header": {
+    "home": "Home",
+    "productTitle": "Product Introduction",
+    "companyProfile": "Company Profile",
+    "contactUs": "Contact Us",
+    "news": "News"
+  }
+}

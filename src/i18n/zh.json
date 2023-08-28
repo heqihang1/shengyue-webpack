@@ -1,0 +1,13 @@
+{
+  "public": {
+    "more": "更多",
+    "previousPage": "上一页",
+    "nextPage": "下一页"
+  },
+  "header": {
+    "aboutUs": "关于我们",
+    "business": "业务介绍",
+    "contactUs": "联系我们",
+    "news": "新闻资讯"
+  }
+}
