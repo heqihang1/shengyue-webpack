@@ -1,9 +1,10 @@
 import React from "react";
+import AboutUs from "../pages/AboutUs"
 const routesList = [
   {
-    url: '/Home',
-    key: 'Home',
-    element: <div>1</div>
+    url: '/AboutUs',
+    key: 'AboutUs',
+    element: <AboutUs/>
   },
   {
     url: '/NewsInformation',

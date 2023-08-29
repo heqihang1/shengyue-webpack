@@ -1,0 +1,57 @@
+.aboutUsContContainer{
+    background-color: rgb(15, 15, 15);
+    padding-bottom: 40px;
+    section{
+        width: 100%;
+        // height: 956px;
+        position: relative;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .culture{
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 80px;
+        font-weight: 700;
+        text-align: center;
+        color:#000;
+        -webkit-text-stroke:4px transparent;
+        background:linear-gradient(180deg,rgb(227,194,130), #000 80% 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+    .aboutScrollContainer{
+        height: 3000px;
+        width: 100%;
+        // overflow: hidden;
+        position: relative;
+    }
+    .cultureContainer{
+        position: fixed;
+        // opacity: 0;
+    }
+    .aboutScroll{
+        // transform: matrix(1,0,0,1,0,0);
+        transform-origin: center 35%;
+        top: 0;
+        z-index: 1;
+    }
+    .aboutList{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 200px;
+        div{
+            margin-right: 40px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            min-width: 100px;
+            height: 100px;
+            background-color: #ccc;
+        }
+    }
+}

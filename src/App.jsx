@@ -9,6 +9,7 @@ import { I18nextProvider, useTranslation } from 'react-i18next';
 import Provider from "./reducer/useContent";
 import Nav from "./Nav";
 import WebFooter from './pages/Components/WebFooter/Footer';
+import AboutUs from "./pages/AboutUs"
 import routesList from "./Route/Routes";
 import "./i18n/config";
 import "antd/dist/antd.css";
@@ -22,7 +23,7 @@ export default () => {
           <BrowserRouter>
             <Nav />
             <Routes >
-              <Route path={`*`} exact={true} element={<div>home</div>} />
+              <Route path={`*`} exact={true} element={<AboutUs />} />
               {routesList.map((v, i) => {
                 return <Route path={v.url} exact={true} element={v.element} key={v.key} />
               })}

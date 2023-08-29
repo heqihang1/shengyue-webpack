@@ -6,6 +6,9 @@ import { Context } from "@/reducer/useContent";
 import en_US from './en.json';
 import zh_CN from './zh.json';
 import zh_HK from './zhHk.json';
+// 圖片
+import zhImg from "./zhImg"
+import zhHkImg from "./zhHkImg"
 
 const resources = {
   // en: {

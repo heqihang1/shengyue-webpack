@@ -100,7 +100,7 @@ export default () => {
           height: 80px;
           z-index: 10;
           .highlightNav{
-            color: #fff;
+            font-weight: 700;
           }
           .navBox{
             display: flex;
