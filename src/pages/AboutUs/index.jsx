@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import './aboutUs.less';
 import { imagesConfig } from "@/i18n/config.js";
 import TitleText from '../Components/TitleText';
+import QueueAnim from 'rc-queue-anim';
+import { Row, Col } from 'antd';
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+
 export default function AboutUs() {
     const companyRef = React.useRef()
     const companyRef2 = React.useRef()
@@ -10,7 +14,7 @@ export default function AboutUs() {
     const [aboutScrollData, setAboutScrollData] = React.useState({
         scrXY: 1,
         companyOpacity: 0,
-        opacity:true,
+        opacity: true,
         culture: true,
     })
     const { img: { aboutusBanner, company } } = imagesConfig()
@@ -34,7 +38,7 @@ export default function AboutUs() {
             }
         ]
     }, [])
-    const list = ["","","","","","","","","","","","","","","","",]
+    const list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",]
     const handleScroll = () => {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         const topHeight = companyRef.current.offsetHeight; // 放大的盒子
@@ -55,11 +59,11 @@ export default function AboutUs() {
                 const val = ((scrollTop + 100) - topHeight4) // 拿到额外计算的值
                 const rote = Math.floor(val / topHeight3 * 1000) / 1000
                 setAboutScrollData((pre) => {
-                    return { ...pre, companyOpacity: rote > 1 ? 1 : rote, opacity:false }
+                    return { ...pre, companyOpacity: rote > 1 ? 1 : rote, opacity: false }
                 })
             } else {
                 setAboutScrollData((pre) => {
-                    return { ...pre, opacity:true, companyOpacity: 0 }
+                    return { ...pre, opacity: true, companyOpacity: 0 }
                 })
             }
         }
@@ -75,16 +79,16 @@ export default function AboutUs() {
             setFixed(false)
         }
         // 结束第一次的滚动动画
-        if(topHeight2 <= (scrollTop + 100)){
-           
-            setAboutScrollData((pre)=>{
+        if (topHeight2 <= (scrollTop + 100)) {
+
+            setAboutScrollData((pre) => {
                 return {
                     ...pre,
                     culture: false
                 }
             })
         } else {
-            setAboutScrollData((pre)=>{
+            setAboutScrollData((pre) => {
                 return {
                     ...pre,
                     culture: true
@@ -100,7 +104,7 @@ export default function AboutUs() {
     }, [])
     const textObj = aboutScrollData.culture ? {
         position: 'fixed', top: "0.6rem"
-    } : {position: 'absolute',  bottom: 0 }
+    } : { position: 'absolute', bottom: 0 }
     return (
         <div styleName='aboutUsContContainer'>
             <section ref={companyRef}>
@@ -111,7 +115,7 @@ export default function AboutUs() {
                     position: fixed ? 'fixed' : 'relative',
                     transform: `matrix(${aboutScrollData.scrXY},0,0,${aboutScrollData.scrXY},0,0)`,
                     opacity: aboutScrollData.opacity ? 1 : 1 - aboutScrollData.companyOpacity
-               }}>
+                }}>
                     <img src={company} alt="" />
                 </section>
                 <section styleName="cultureContainer" ref={companyRef3} style={{
@@ -127,13 +131,33 @@ export default function AboutUs() {
                 </section>
             </div>
             <div styleName='aboutList'>
+                <OverPack
+                    playScale={0.3}
+                    className='aboutList'
+                >
                     {
-                        list.map((v,i)=>{
-                            return <div key={i}>
-                                <img src="" alt="" />
-                            </div>
+                        list.map((v, i) => {
+                            return <QueueAnim
+                                key={"QueueAnim" + i}
+                                type={i <= 10 ? 'top' : 'bottom'}
+                            // delay={100}
+                            >
+                                <div key={i} styleName="aboutItem">
+                                    <img src="" alt="" />
+                                </div>
+                            </QueueAnim>
                         })
                     }
+
+                </OverPack>
+                <style>
+                    {`
+                        .aboutList{
+                            display: flex;
+                            flex-wrap: wrap;
+                        }
+                    `}
+                </style>
             </div>
         </div>
     )

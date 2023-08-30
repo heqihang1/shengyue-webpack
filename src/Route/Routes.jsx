@@ -1,5 +1,6 @@
 import React from "react";
-import AboutUs from "../pages/AboutUs"
+import AboutUs from "../pages/AboutUs";
+import Business from "../pages/Business/Business";
 const routesList = [
   {
     url: '/AboutUs',
@@ -7,9 +8,9 @@ const routesList = [
     element: <AboutUs/>
   },
   {
-    url: '/NewsInformation',
-    key: 'NewsInformation',
-    element: <div>2</div>
+    url: '/Business',
+    key: 'Business',
+    element: <Business />
   },
 ]
 export default routesList;
