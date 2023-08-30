@@ -2,8 +2,6 @@ import React from "react";
 import AboutUs from "../pages/AboutUs";
 import Business from "../pages/Business/Business";
 import ContactUs from "../pages/ContactUs/ContactUs";
-import AboutUs from "../pages/AboutUs"
-import Business from "../pages/Business/Business"
 import BusinessDetails from "../pages/Components/BusinessDetails/BusinessDetails"
 
 const routesList = [
