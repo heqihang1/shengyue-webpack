@@ -8,5 +8,11 @@
     "aboutUs": "关于我们",
     "business": "业务介绍",
     "contactUs": "联系我们"
+  },
+  "footer": {
+    "companyName": "深圳市昇月文化传煤有限公司",
+    "phone": "全国咨询热线",
+    "mail": "邮箱",
+    "address": "深圳市南山区深港合作区前海嘉里中心T7栋14层1403室"
   }
 }

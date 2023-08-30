@@ -130,6 +130,7 @@ export default function AboutUs() {
                     })}
                 </section>
             </div>
+            
             <div styleName='aboutList'>
                 <OverPack
                     playScale={0.3}
@@ -139,7 +140,7 @@ export default function AboutUs() {
                         list.map((v, i) => {
                             return <QueueAnim
                                 key={"QueueAnim" + i}
-                                type={i <= 10 ? 'top' : 'bottom'}
+                                type={i <= 9 ? 'top' : 'bottom'}
                             // delay={100}
                             >
                                 <div key={i} styleName="aboutItem">
