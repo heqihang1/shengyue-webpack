@@ -1,8 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './Business.less'
+import { WOW } from "wowjs"
 
 export default function Business() {
+
+  let wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+    live: false
+  })
 
   const navigate = useNavigate();
   const list = [
@@ -21,6 +30,10 @@ export default function Business() {
   const detailsChange = (key) => {
     console.log(key);
   }
+
+  useEffect(() => {
+    wow.init()
+  }, [])
 
   return (
     <div className={styles.container}>

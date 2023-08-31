@@ -41,8 +41,8 @@
 
   .main {
     width: 800px;
-    height: 400px;
-    background: pink;
+    // height: 400px;
+    // background: pink;
     margin-top: 30px;
   }
 }
@@ -62,20 +62,47 @@
   display: flex;
   justify-content: flex-end;
   padding-right: 200px;
-  // animation: 'rollIn';
-  // animation-duration: 2s;
+  position: relative;
 
-  .iBox {
+  .border_b {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+  }
+
+  .leftTop {
+    top: 0;
+    left: 900px;
+    border-left: 2px solid #e8c47e;
+    border-top: 2px solid #e8c47e;
+  }
+
+  .rightBottom {
+    bottom: 20px;
+    right: 190px;
+    border-right: 2px solid #e8c47e;
+    border-bottom: 2px solid #e8c47e;
+  }
+
+  .iBox,
+  .iBox2 {
     width: 800px;
-    padding: 50px;
-    border-image-source: radial-gradient(60% 60%, transparent 0px, transparent 90%, #e8c47e 100%);
-    border-image-slice: 1;
-    border-width: 1.5px;
-    border-style: solid;
+    line-height: 50px;
     font-size: 16px;
     color: #fff;
     letter-spacing: 1px;
-    line-height: 40px;
+  }
+
+  .iBox {
+    padding: 50px;
+    // border-image-source: radial-gradient(60% 60%, transparent 0px, transparent 90%, #e8c47e 100%);
+    // border-image-slice: 1;
+    // border-width: 1.5px;
+    // border-style: solid;
+  }
+
+  .iBox2 {
+    padding-bottom: 50px;
   }
 
 }
