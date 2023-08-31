@@ -92,12 +92,12 @@ export default () => {
       <style jsx>{`
         .nav {
           display: flex;
-          padding: 0 400px;
+          padding: 0 300px;
           align-items: center;
           justify-content: space-between;
           position: fixed;
           width: 100%;
-          height: 80px;
+          height: 120px;
           z-index: 10;
           .highlightNav{
             font-weight: 700;
@@ -116,12 +116,12 @@ export default () => {
           }
           >img{
             min-width: 100px;
-            height: 80px;
+            height: 120px;
             marginRight: 5em;
           }
         }
         .navBj{
-          height:80px;
+          height:120px;
           background-color:#000;
           width:100%;
           z-index: 8;
@@ -132,7 +132,7 @@ export default () => {
           display: flex;
           z-index: 10;
           right: 8%;
-          height: 80px;
+          height: 120px;
           align-items: center;
           div{
             margin-left:20px;

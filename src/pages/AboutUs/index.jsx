@@ -3,7 +3,6 @@ import './aboutUs.less';
 import { imagesConfig } from "@/i18n/config.js";
 import TitleText from '../Components/TitleText';
 import QueueAnim from 'rc-queue-anim';
-import { Row, Col } from 'antd';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 
 export default function AboutUs() {
@@ -15,6 +14,7 @@ export default function AboutUs() {
         scrXY: 1,
         companyOpacity: 0,
         opacity: true,
+        opacityBoole: true,
         culture: true,
     })
     const { img: { aboutusBanner, company } } = imagesConfig()
@@ -28,7 +28,7 @@ export default function AboutUs() {
             {
                 title: '公司理念',
                 viceTitle: 'COMPANY PHILOSOPHY',
-                viceText: '公司文化公司文化公司文化公司文化 \n 公司文化\n公司文化公司文化公司文化公司文化 \n公司文化公司文化公司文化公司文化 \n',
+                viceText: '公司文化公司文化公司文化公司文化 \n 公司文化公司文化公司文化公司文化 \n 公司文化\n公司文化公司文化公司文化公司文化 \n公司文化公司文化公司文化公司文化 \n',
                 mark: true
             },
             {
@@ -42,56 +42,37 @@ export default function AboutUs() {
     const handleScroll = () => {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         const topHeight = companyRef.current.offsetHeight; // 放大的盒子
+        const bigData = 1.4 // 1.40 为缩放的最大值
         const topHeight2 = companyRef2.current.offsetHeight; // 滚动的整个盒子
         const topHeight3 = companyRef3.current.offsetHeight; // 文本内容
         const topHeight4 = topHeight2 - topHeight3
         // 计算值 开始触发滚动事件
-        if ((scrollTop - 50) >= topHeight) {
-            // companyRef3.current.offsetHeight
-            if ((topHeight2 + topHeight) >= scrollTop && scrollTop <= topHeight4) {
-                const val = ((scrollTop - 50) - topHeight) / 10
-                setAboutScrollData((pre) => {
-                    return { ...pre, scrXY: val > 1 ? val : 1 }
-                })
-            }
-            // 滚动到达底部开始展示文字
-            if ((scrollTop + 100) >= topHeight4) {
-                const val = ((scrollTop + 100) - topHeight4) // 拿到额外计算的值
-                const rote = Math.floor(val / topHeight3 * 1000) / 1000
-                setAboutScrollData((pre) => {
-                    return { ...pre, companyOpacity: rote > 1 ? 1 : rote, opacity: false }
-                })
-            } else {
-                setAboutScrollData((pre) => {
-                    return { ...pre, opacity: true, companyOpacity: 0 }
-                })
-            }
-        }
-
-        // 滚动到达文件图片
-        if (scrollTop >= topHeight) {
-            // 文件定位到顶部
-            setFixed(true)
-        } else {
+        if ((scrollTop + window.innerHeight + 200) <= topHeight) {
+            const val = (scrollTop * 1.4 / (topHeight - window.innerHeight - 200)) * 100
             setAboutScrollData((pre) => {
-                return { ...pre, scrXY: 1 }
+                return { ...pre, scrXY: val > 1 ? val : 1 }
             })
-            setFixed(false)
         }
-        // 结束第一次的滚动动画
-        if (topHeight2 <= (scrollTop + 100)) {
-
+        // 滚动值在200区间时 透明度计算
+        if ((topHeight - window.innerHeight - 200) <= scrollTop
+            && scrollTop <= (topHeight - window.innerHeight)) {
+            const val = (scrollTop - (topHeight - window.innerHeight - 200)) / 2;
+            setFixed(true)
             setAboutScrollData((pre) => {
                 return {
                     ...pre,
-                    culture: false
+                    companyOpacity: (Math.floor(val) / 100) > 0.9 ? 1 : (Math.floor(val) / 100),
+                    opacity: false,
+                    opacityBoole: true,
                 }
             })
-        } else {
+        }
+        // 超出 200 时
+        if (scrollTop >= (topHeight - window.innerHeight)) {
             setAboutScrollData((pre) => {
                 return {
                     ...pre,
-                    culture: true
+                    opacityBoole: false
                 }
             })
         }
@@ -102,35 +83,57 @@ export default function AboutUs() {
             window.removeEventListener('scroll', handleScroll);
         }
     }, [])
-    const textObj = aboutScrollData.culture ? {
-        position: 'fixed', top: "0.6rem"
+    const textObj = aboutScrollData.opacityBoole ? {
+        position: 'fixed', bottom: "0rem"
     } : { position: 'absolute', bottom: 0 }
     return (
         <div styleName='aboutUsContContainer'>
-            <section ref={companyRef}>
-                <img src={aboutusBanner} alt="" />
+            <section ref={companyRef} styleName="aboutScrollContainer">
+                <section styleName="aboutScroll"
+                    style={{
+                        display: aboutScrollData.opacityBoole ? "block" : "none",
+                        transform: `matrix(${aboutScrollData.scrXY},0,0,${aboutScrollData.scrXY},0,0)`,
+                        opacity: aboutScrollData.opacity ? 1 : 1 - aboutScrollData.companyOpacity
+                    }}
+                >
+                    <img src={aboutusBanner} alt="" />
+                </section>
+                {/* shengyuee */}
+                <div ref={companyRef2}
+                    styleName="salesScroll"
+                    style={{
+                        opacity:aboutScrollData.opacityBoole ? aboutScrollData.companyOpacity : 1,
+                        ...textObj
+                    }}>
+                    <section>
+                        <img src={company} alt="" />
+                    </section>
+
+                </div>
             </section>
-            <div styleName="aboutScrollContainer" ref={companyRef2}>
-                <section styleName="aboutScroll" style={{
-                    position: fixed ? 'fixed' : 'relative',
-                    transform: `matrix(${aboutScrollData.scrXY},0,0,${aboutScrollData.scrXY},0,0)`,
-                    opacity: aboutScrollData.opacity ? 1 : 1 - aboutScrollData.companyOpacity
-                }}>
-                    <img src={company} alt="" />
-                </section>
-                <section styleName="cultureContainer" ref={companyRef3} style={{
-                    opacity: aboutScrollData.companyOpacity,
-                    ...textObj
-                }}>
-                    <span styleName='culture'>
-                        COMPANY CULTURE
-                    </span>
-                    {text.map((v, index) => {
-                        return <TitleText key={index} {...v} />
-                    })}
-                </section>
-            </div>
+
+            <section styleName="cultureContainer" ref={companyRef3} style={{
+                // opacity: aboutScrollData.companyOpacity,
+                // ...textObj
+            }}>
+                <OverPack
+                    playScale={0.3}
+                >
+                    <QueueAnim
+                        key={"QueueAnim"}
+                        type={'bottom'}
+                    // delay={100}
+                    >
+                        <span styleName='culture' key={"QueueAnim"} >
+                            COMPANY CULTURE
+                        </span>
+                    </QueueAnim>
+                </OverPack>
             
+                {text.map((v, index) => {
+                    return <TitleText key={index} {...v} />
+                })}
+            </section>
             <div styleName='aboutList'>
                 <OverPack
                     playScale={0.3}
