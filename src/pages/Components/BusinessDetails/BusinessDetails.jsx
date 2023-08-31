@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import './BusinessDetails.less'
 import { WOW } from "wowjs"
-import Content1 from "./Content1/Content1";
-import { Parallax, OverPack } from 'rc-scroll-anim';
-import TweenOne from 'rc-tween-one';
-import QueueAnim from 'rc-queue-anim';
 
 export default function BusinessDetails() {
   const location = useLocation();
@@ -51,7 +47,6 @@ export default function BusinessDetails() {
 
           {/* start */}
           <div styleName="main">
-            {detailsKey === 1 ? <Content1 /> : ''}
 
 
           </div>

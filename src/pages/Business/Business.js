@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './Business.less'
 import { WOW } from "wowjs"
@@ -27,19 +27,12 @@ export default function Business() {
     { key: 1 }, { key: 2 }, { key: 3 }, { key: 4 }, { key: 5 }
   ]
 
-  const detailsChange = (key) => {
-    console.log(key);
-  }
-
   useEffect(() => {
     wow.init()
   }, [])
 
   return (
     <div className={styles.container}>
-
-      <div class="wow slideInRight" data-wow-duration="4s">wow元素可见展示动画</div>
-
       <div>
         {list.map(item => {
           return (
