@@ -35,7 +35,7 @@ export default () => {
   return (
     <I18nextProvider>
       <Provider>
-        <div className={`${cssPrefix}`} style={{ overflow: 'hidden', position: 'relative' }}>
+        <div className={`${cssPrefix}`} style={{background:"#000000", overflow: 'hidden', position: 'relative' }}>
           <BrowserRouter>
             <Nav />
             <Routes >

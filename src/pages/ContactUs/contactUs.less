@@ -1,25 +1,43 @@
 .contactUsContainer{
     padding-top: 0.8rem;
+    background-color: #000000;
     .contactTopText{
         display: flex;
         // align-items: center;
-        padding-top: 150px;
-        height: 350px;
-        background: rgb(15, 15, 15);
+        padding-top: 228px;
+        padding-bottom: 136px;
+        // height: 350px;
+        background: #000000;
         justify-content: center;
     }
     .contactUsContent{
-        height: 700px;
+        position: relative;
+        height: 715px;
+        margin-bottom: 130px;
         background-color: rgb(199, 199, 199);
     }
     .contactUsGet{
-        padding-top: 100px;
-        background-color: rgb(15, 15, 15);
+        background-color: #000000;
     }
     .contactUsInput{
         display: flex;
         justify-content: center;
         position: relative;
+        input{
+
+            &::-webkit-input-placeholder{
+                opacity:0.15
+             }
+             &:-moz-placeholder{
+                opacity:0.15
+             }
+             &::-moz-placeholder{
+                opacity:0.15
+             }
+             &:-ms-input-placeholder{
+                opacity:0.15
+             }
+        }
     }
     .inputButton{
         width: 100px;
@@ -27,12 +45,29 @@
         background-image: linear-gradient(180deg,#874d00, #fff1b8);
         border-radius: 100%;
         position: absolute;
-        right: 20%;
+        right: 15%;
         top: 50%;
         transform: translateY(-50%);
         display: flex;
         align-items: center;
         justify-content: center;
+        color: #fff;
+        font-size: 46px;
         cursor: pointer;
+    }
+    .contactUsText{
+        position: absolute;
+        bottom: 0;
+        right: 80px;
+        color: #fff;
+        line-height: 50px;
+        font-weight: 200;
+        white-space: pre-wrap;
+        font-family: MiSans-ExtraLight, MiSans;
+        text-align: right;
+        >div{
+            width: 150px;
+            height: 150px;
+        }
     }
 }

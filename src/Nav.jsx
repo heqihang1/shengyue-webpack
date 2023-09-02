@@ -95,6 +95,7 @@ export default () => {
           padding: 0 300px;
           align-items: center;
           justify-content: space-between;
+          font-family: MiSans-Bold, MiSans;
           position: fixed;
           width: 100%;
           height: 120px;
@@ -104,14 +105,15 @@ export default () => {
           }
           .navBox{
             display: flex;
+            font-size: 18px;
           }
           li {
-            margin-left: 6em;
+            margin-left: 60px;
             list-style-type: none;
             color: #fff;
             &:hover {
               cursor: pointer;
-              color: #39B549;
+              font-weight: 700;
             }
           }
           >img{
@@ -122,7 +124,7 @@ export default () => {
         }
         .navBj{
           height:120px;
-          background-color:#000;
+          background-color:#0F0F0F;
           width:100%;
           z-index: 8;
           position: fixed;

@@ -3,9 +3,9 @@ import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import './titleText.less';
 
-export default function TitleText({ title, viceTitle, viceText, mark }) {
+export default function TitleText({ title, viceTitle, viceText, mark, style }) {
     return (
-        <div styleName="titltTextContainer">
+        <div styleName="titltTextContainer" style={style}>
             <OverPack
                 playScale={0.2}
             >

@@ -4,11 +4,11 @@ import { imagesConfig } from "@/i18n/config.js";
 import TitleText from '../Components/TitleText';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+import { t } from 'i18next';
 
 export default function AboutUs() {
     const companyRef = React.useRef()
     const companyRef2 = React.useRef()
-    const companyRef3 = React.useRef()
     const [fixed, setFixed] = React.useState(false)
     const [aboutScrollData, setAboutScrollData] = React.useState({
         scrXY: 1,
@@ -21,34 +21,31 @@ export default function AboutUs() {
     const text = React.useMemo(() => {
         return [
             {
-                title: '公司文化',
-                viceText: '公司文化 \n 公司文化\n公司文化公司文化公司文化公司文化 \n公司文化公司文化公司文化公司文化 \n公司文化公司文化公司文化公司文化 \n公司文化 \n公司文化 \n公司文化 \n公司文化 \n公司文化 \n',
+                title: t("aboutUs.routesList"),
+                viceText: t("aboutUs.content"),
                 mark: true
             },
             {
-                title: '公司理念',
+                title: t("aboutUs.companyPhilosophy"),
                 viceTitle: 'COMPANY PHILOSOPHY',
-                viceText: '公司文化公司文化公司文化公司文化 \n 公司文化公司文化公司文化公司文化 \n 公司文化\n公司文化公司文化公司文化公司文化 \n公司文化公司文化公司文化公司文化 \n',
+                viceText: t("aboutUs.companyText"),
                 mark: true
             },
             {
-                title: '业务平台',
+                title: t("aboutUs.business"),
                 viceTitle: 'COMPANY PHILOSOPHY',
                 mark: true
             }
         ]
     }, [])
-    const list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",]
+    const list = ["", "", "", "", "", "", "", "", "", "", "", "", "", ""]
     const handleScroll = () => {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         const topHeight = companyRef.current.offsetHeight; // 放大的盒子
         const bigData = 1.4 // 1.40 为缩放的最大值
-        const topHeight2 = companyRef2.current.offsetHeight; // 滚动的整个盒子
-        const topHeight3 = companyRef3.current.offsetHeight; // 文本内容
-        const topHeight4 = topHeight2 - topHeight3
         // 计算值 开始触发滚动事件
         if ((scrollTop + window.innerHeight + 200) <= topHeight) {
-            const val = (scrollTop * 1.4 / (topHeight - window.innerHeight - 200)) * 100
+            const val = (scrollTop * bigData / (topHeight - window.innerHeight - 200)) * 100
             setAboutScrollData((pre) => {
                 return { ...pre, scrXY: val > 1 ? val : 1 }
             })
@@ -111,10 +108,7 @@ export default function AboutUs() {
 
                 </div>
             </section>
-
-            <section styleName="cultureContainer" ref={companyRef3} style={{
-                // opacity: aboutScrollData.companyOpacity,
-                // ...textObj
+            <section styleName="cultureContainer" style={{
             }}>
                 <OverPack
                     playScale={0.3}
@@ -131,7 +125,9 @@ export default function AboutUs() {
                 </OverPack>
             
                 {text.map((v, index) => {
-                    return <TitleText key={index} {...v} />
+                    return <TitleText key={index} {...v} style={{
+                        marginBottom: index === 2 ? "52px" :"184px"
+                    }}/>
                 })}
             </section>
             <div styleName='aboutList'>

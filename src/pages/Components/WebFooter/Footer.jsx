@@ -45,12 +45,12 @@ export default function Footer() {
         </div>
         <div styleName="footerCompany">
           {t("footer.companyName")}
+          <br/>
           {t("footer.phone")}: {"(0755) 8695 9281"} {t("footer.mail")}: INFO@BAOERFEIYANG.CN
           <br/>
           {t("footer.address")}
           <br/>
           <br/>
-
           粤ICP备14007045号-1 © SHENGYUE
         </div>
         <div></div>

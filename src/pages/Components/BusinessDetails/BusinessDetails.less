@@ -1,8 +1,11 @@
 .container {
   width: 100%;
   height: 100%;
+  position: relative;
   background: #171717;
-  padding-bottom: 50px;
+  padding-bottom: 200px;
+  padding-top: 89px;
+
 }
 
 .headerImg {
@@ -14,47 +17,55 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 200px;
+  // margin-bottom: 64px;
 
   .title {
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 58px;
+    font-family: MiSans-Bold, MiSans;
+    font-weight: bold;
     color: #fff;
+    line-height: 83px
   }
 
   .tag {
-    font-size: 26px;
+    font-family: MiSans-Bold, MiSans;
+    font-size: 58px;
     color: #b3b3b3;
     font-weight: 300;
-    padding-bottom: 30px;
+    padding-bottom: 89px;
   }
 
   .line1 {
     width: 36px;
     height: 3px;
+    margin-bottom: 163px;
     background-image: linear-gradient(to right, #e8c47e, #caa362, #a57b41);
   }
 
   .line2 {
-    margin-top: 30px;
+    // margin-top: 30px;
+    margin-bottom: 64px;
   }
 
   .main {
-    width: 800px;
+    // width: 800px;
     // height: 400px;
     // background: pink;
+    margin-bottom: 162px;
     margin-top: 30px;
   }
 }
 
 //渐变英文
 .gradationEn {
-  font-size: 100px;
-  font-weight: 700;
+  font-size: 150px;
+  line-height: 150px;
+  font-family: MiSans-Bold, MiSans;
+  font-weight: bold;
   -webkit-text-stroke: 4px transparent;
-  background: linear-gradient(180deg, #e8c47e, #a57b41, #000 65% 100%);
+  background: linear-gradient(180deg, #E9C580, #a57b41, #000 65% 100%);
   -webkit-background-clip: text;
-  padding-left: 10px;
+  padding-left: 16px;
 }
 
 //底部介绍
@@ -66,13 +77,13 @@
 
   .border_b {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
 
   .leftTop {
     top: 0;
-    left: 900px;
+    left: 0;
     border-left: 2px solid #e8c47e;
     border-top: 2px solid #e8c47e;
   }
@@ -86,7 +97,7 @@
 
   .iBox,
   .iBox2 {
-    width: 800px;
+    width: 1065px;
     line-height: 50px;
     font-size: 16px;
     color: #fff;
@@ -94,7 +105,13 @@
   }
 
   .iBox {
-    padding: 50px;
+    position: relative;
+    padding: 60px 36px;
+    font-size: 25px;
+    font-family: MiSans-Light, MiSans;
+    font-weight: 300;
+    color: #FFFFFF;
+    line-height: 63px;
     // border-image-source: radial-gradient(60% 60%, transparent 0px, transparent 90%, #e8c47e 100%);
     // border-image-slice: 1;
     // border-width: 1.5px;
@@ -104,5 +121,4 @@
   .iBox2 {
     padding-bottom: 50px;
   }
-
 }
