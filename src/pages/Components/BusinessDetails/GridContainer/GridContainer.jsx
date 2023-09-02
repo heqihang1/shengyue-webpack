@@ -35,7 +35,8 @@ export default function GridContainer({ data }) {
                         style={{
                             ...v.textStyle
                         }}
-                    >{v.text}</div>}
+                        dangerouslySetInnerHTML={{ __html: v.text }}
+                    ></div>}
                     {v.img && <img
                     style={{
                         ...v?.imgStyle

@@ -36,6 +36,9 @@ const MARKETING = {
             titleStyle: {
                 fontSize:"0.42rem"
             },
+            textStyle: {
+                fontWeight:400
+            }
         }
     ]
 }
@@ -61,12 +64,14 @@ const SCIENCE = {
             text:"提升用户体验",
             viceTitleStyle:{
                 fontSize:'0.6rem',
+                fontWeight:200,
                 marginBottom:"0.1rem"
             },
             itemStyle: {
                 paddingLeft: '0.55rem',
                 paddingTop:'1.52rem',
                 display:"block",
+                fontWeight:400,
             },
         },
         {
@@ -100,12 +105,14 @@ const EXPAND = {
             text:"丰富项目的视觉",
             viceTitleStyle:{
                 fontSize:'0.6rem',
-                marginBottom:"0.1rem"
+                marginBottom:"0.1rem",
+                fontWeight:200
             },
             itemStyle:{
                 display:"block",
                 paddingLeft: '0.55rem',
                 paddingTop:'1.52rem',
+                fontWeight:400
             }
         },
         {
@@ -128,6 +135,9 @@ const FILMANDTELEVISION = {
             viceTitleStyle:{
                 fontSize:'0.6rem',
                 fontWeight: 200,
+            },
+            titleStyle:{
+                fontWeight: 400
             }
         },
         {
@@ -139,14 +149,17 @@ const FILMANDTELEVISION = {
             img:pin,
         },
         {
-            viceTitle:"提升品牌知名度",
-            text:"及产品销售量",
+            // viceTitle:"",
+            text:"及产品<b>销售量</b>\n提升品牌<b>知名度</b>",
             itemStyle:{
                 display:"block",
                 paddingLeft: '0.55rem',
                 paddingTop:'1.52rem',
-                fontSize:"0.6rem"
             },
+            textStyle:{
+                fontSize:"0.6rem"
+
+            }
         },
         
         {
@@ -171,7 +184,11 @@ const MIND = {
             },
             viceTitleStyle:{
                 fontWeight:200,
+                fontSize:"0.6rem",
                 marginBottom:"0.2rem"
+            },
+            textStyle: {
+                fontWeight:400,
             }
         },
         {
@@ -195,6 +212,9 @@ const MIND = {
                 paddingLeft: '0.55rem',
                 paddingTop:'0.98rem',
             },
+            textStyle: {
+                fontWeight: 400
+            }
         },
     ]
 }
@@ -211,6 +231,9 @@ const MEDIA = {
                 display:"block",
                 paddingLeft: '0.55rem',
                 paddingTop:'0.94rem',
+            },
+            textStyle: {
+                fontWeight: 400
             }
         },
         {
