@@ -139,7 +139,7 @@ export default function AboutUs() {
                         list.map((v, i) => {
                             return <QueueAnim
                                 key={"QueueAnim" + i}
-                                type={i <= 9 ? 'top' : 'bottom'}
+                                type={i <= 7 ? 'top' : 'bottom'}
                             // delay={100}
                             >
                                 <div key={i} styleName="aboutItem">

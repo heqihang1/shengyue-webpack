@@ -2,6 +2,7 @@ import React from 'react';
 import TitleText from '../Components/TitleText';
 import { t } from 'i18next';
 import { Input } from 'antd';
+import pin from  "@/assets/images/zh/pingpai.png"
 import "./contactUs.less";
 
 export default function contactUs() {
@@ -24,7 +25,10 @@ export default function contactUs() {
                         width:"1.5rem",
                         height:"1.5rem"
                     }}>
-                        <img src="" alt="" />
+                        <img src={pin} alt="" style={{
+                            width: "100%",
+                            height: "100%"
+                        }}/>
                     </div>
                 </div>
             </div>
