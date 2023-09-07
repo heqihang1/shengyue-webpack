@@ -2,6 +2,7 @@ import React,{useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './Business.less'
 import { WOW } from "wowjs"
+import AnimationBanner from '../Components/AnimationBanner/AnimationBanner';
 
 export default function Business() {
 
@@ -80,7 +81,6 @@ export default function Business() {
           )
         })}
       </div>
-
     </div>
   )
 }

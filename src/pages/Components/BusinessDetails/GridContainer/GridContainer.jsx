@@ -28,7 +28,7 @@ export default function GridContainer({ data }) {
                         style={{
                             ...v?.viceTitleStyle
                         }}
-                        
+
                     >{v.viceTitle}</div>}
                     {v.text && <div
                         styleName="text"
@@ -38,10 +38,10 @@ export default function GridContainer({ data }) {
                         dangerouslySetInnerHTML={{ __html: v.text }}
                     ></div>}
                     {v.img && <img
-                    style={{
-                        ...v?.imgStyle
-                    }}
-                    src={v.img} />}
+                        style={{
+                            ...v?.imgStyle
+                        }}
+                        src={v.img} />}
                 </div>
             })}
         </div>
